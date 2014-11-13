@@ -17,9 +17,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.add_role "houston"
 
       chef.json = {
-        "rvm" => {
-          'rubies' => ['2.1.4'],
-          'default_ruby' => '2.1.4'
+        :rvm => {
+          :rubies => ['2.1.4'],
+          :default_ruby => '2.1.4'
         }
       }
     end
@@ -59,9 +59,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.add_role "tdrs"
 
       chef.json = {
-        "rvm" => {
-          'rubies' => ['2.1.4'],
-          'default_ruby' => '2.1.4'
+        :rvm => {
+          :rubies => ['2.1.4'],
+          :default_ruby => '2.1.4'
         }
       }
     end
