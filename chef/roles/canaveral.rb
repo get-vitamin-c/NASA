@@ -3,5 +3,5 @@ name "canaveral"
 
 # Run list function we mentioned earlier
 run_list(
-
+  "recipe[rvm]"
 )
