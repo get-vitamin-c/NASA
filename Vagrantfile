@@ -21,19 +21,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           :rubies => ['2.1.4'],
           :default_ruby => '2.1.4',
           :vagrant => {
-            :system_chef_solo => "/usr/local/bin/chef-solo"
+            :system_chef_solo => "/usr/bin/chef-solo"
           }
         },
         :postgresql => {
           :password => {
             :postgres => "V1t@minC"
           },
-          :pg_hba => {
+          :pg_hba => [{
             :type => "local",
-            :database => "all", 
+            :db => "all", 
             :user => "all",
+            :addr => nil,
             :method => "md5"
-          },
+          }],
           :users => {
             :username => "vitaminc",
             :password => "V1t@minC",
