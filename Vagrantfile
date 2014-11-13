@@ -8,7 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     houston.vm.box = "houston"
     houston.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     houston.vm.network :forwarded_port, guest: 3000, host: 3000
-    houston.vm.synced_folder "houston/", "/vagrant"
+    houston.vm.network :private_network, ip: '192.168.50.48'
+    houston.vm.synced_folder "houston/", "/vagrant", nfs: true
     
     houston.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -47,7 +48,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     canaveral.vm.box = "canaveral"
     canaveral.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     canaveral.vm.network :forwarded_port, guest: 4568, host: 4568
-    canaveral.vm.synced_folder "canaveral/", "/vagrant"
+    canaveral.vm.network :private_network, ip: '192.168.50.49'
+    canaveral.vm.synced_folder "canaveral/", "/vagrant", nfs: true
     
     canaveral.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -59,7 +61,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           :rubies => ['2.1.4'],
           :default_ruby => '2.1.4',
           :vagrant => {
-            :system_chef_solo => "/usr/local/bin/chef-solo"
+            :system_chef_solo => "/usr/bin/chef-solo"
           }
         }
       }
@@ -70,7 +72,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     tdrs.vm.box = "tdrs"
     tdrs.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     tdrs.vm.network :forwarded_port, guest: 4567, host: 4567
-    tdrs.vm.synced_folder "TDRS/", "/vagrant"
+    tdrs.vm.network :private_network, ip: '192.168.50.50'
+    tdrs.vm.synced_folder "TDRS/", "/vagrant", nfs: true
     
     tdrs.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -82,7 +85,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           :rubies => ['2.1.4'],
           :default_ruby => '2.1.4',
           :vagrant => {
-            :system_chef_solo => "/usr/local/bin/chef-solo"
+            :system_chef_solo => "/usr/bin/chef-solo"
           }
         }
       }
