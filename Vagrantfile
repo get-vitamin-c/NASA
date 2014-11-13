@@ -11,8 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     houston.vm.synced_folder "houston/", "/vagrant"
 
     houston.vm.provision :chef_solo do |chef|
-      chef.roles_path = "chef/roles"
-      chef.cookbooks_path = ["chef/site-cookbooks", "chef/cookbooks"]
+      chef.roles_path = "roles"
+      chef.cookbooks_path = "~/.berkshelf/cookbooks"
       chef.add_role "houston"
     end
   end
