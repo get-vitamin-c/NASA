@@ -3,8 +3,7 @@
 
 site 'https://supermarket.getchef.com/api/v1'
 
-cookbook 'rvm',
-  :git => "https://github.com/get-vitamin-c/chef-rvm"
+cookbook 'rvm'
 cookbook 'git'
 cookbook 'postgresql'
 cookbook 'mongodb'

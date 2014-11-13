@@ -11,6 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     houston.vm.network :private_network, ip: '192.168.50.48'
     houston.vm.synced_folder "houston/", "/vagrant", nfs: true
     
+    houston.vm.provision "shell", inline: "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
     houston.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.roles_path = "roles"

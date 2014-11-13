@@ -46,6 +46,8 @@ SITE
       build-essential (>= 0.0.0)
       yum (~> 3.0)
       yum-epel (>= 0.0.0)
+    rvm (0.9.2)
+      chef_gem (>= 0.0.0)
     sidekiq (3.3.0)
       smf (>= 2.1.0)
     smf (2.2.0)
@@ -56,14 +58,6 @@ SITE
     yum (3.4.1)
     yum-epel (0.5.2)
       yum (~> 3.0)
-
-GIT
-  remote: https://github.com/get-vitamin-c/chef-rvm
-  ref: master
-  sha: ba61ef7b741f10efb31daa640f18428f7f241b76
-  specs:
-    rvm (0.10.1)
-      chef_gem (>= 0.0.0)
 
 DEPENDENCIES
   git (>= 0)
