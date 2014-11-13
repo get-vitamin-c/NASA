@@ -9,10 +9,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     houston.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     houston.vm.network :forwarded_port, guest: 3000, host: 3000
     houston.vm.synced_folder "houston/", "/vagrant"
-
+    
     houston.vm.provision :chef_solo do |chef|
       chef.roles_path = "roles"
-      chef.cookbooks_path = "~/.berkshelf/cookbooks"
+      chef.cookbooks_path = ["cookbooks"]
       chef.add_role "houston"
     end
   end
