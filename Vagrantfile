@@ -18,7 +18,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.json = {
         :rvm => {
           :rubies => ['2.1.4'],
-          :default_ruby => '2.1.4'
+          :default_ruby => '2.1.4',
+          :vagrant => {
+            :system_chef_solo => "/usr/local/bin/chef-solo"
+          }
         },
         :postgresql => {
           :password => {
@@ -47,13 +50,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     canaveral.vm.synced_folder "canaveral/", "/vagrant"
     
     canaveral.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = "cookbooks"
       chef.roles_path = "roles"
       chef.add_role "canaveral"
 
       chef.json = {
         :rvm => {
           :rubies => ['2.1.4'],
-          :default_ruby => '2.1.4'
+          :default_ruby => '2.1.4',
+          :vagrant => {
+            :system_chef_solo => "/usr/local/bin/chef-solo"
+          }
         }
       }
     end
@@ -64,17 +71,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     tdrs.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     tdrs.vm.network :forwarded_port, guest: 4567, host: 4567
     tdrs.vm.synced_folder "TDRS/", "/vagrant"
-
-    tdrs.berkshelf.enabled = true
     
     tdrs.vm.provision :chef_solo do |chef|
+      chef.cookbooks_path = "cookbooks"
       chef.roles_path = "roles"
       chef.add_role "tdrs"
 
       chef.json = {
         :rvm => {
           :rubies => ['2.1.4'],
-          :default_ruby => '2.1.4'
+          :default_ruby => '2.1.4',
+          :vagrant => {
+            :system_chef_solo => "/usr/local/bin/chef-solo"
+          }
         }
       }
     end
