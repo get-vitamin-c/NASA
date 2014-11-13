@@ -1,8 +1,9 @@
 source 'https://supermarket.getchef.com'
 
 cookbook 'rvm'
+cookbook 'git'
 cookbook 'postgresql'
 cookbook 'mongodb'
 cookbook 'nodejs'
-cookbook 'redis'
+cookbook 'redisio'
 cookbook 'sidekiq'

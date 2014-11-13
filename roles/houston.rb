@@ -3,5 +3,9 @@ name "houston"
 
 # Run list function we mentioned earlier
 run_list(
-  "recipe[rvm::system]"
+  "recipe[rvm::system]",
+  "recipe[git]",
+  "recipe[postgresql]",
+  "recipe[postgresql::ruby]",
+  "recipe[nodejs]"
 )
