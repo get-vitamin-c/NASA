@@ -1,4 +1,7 @@
-source 'https://supermarket.getchef.com'
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'https://supermarket.getchef.com/api/v1'
 
 cookbook 'rvm'
 cookbook 'git'

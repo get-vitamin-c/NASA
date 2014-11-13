@@ -6,6 +6,6 @@ run_list(
   "recipe[rvm::system]",
   "recipe[git]",
   "recipe[postgresql]",
-  "recipe[postgresql::ruby]",
+  "recipe[postgresql::server]",
   "recipe[nodejs]"
 )
