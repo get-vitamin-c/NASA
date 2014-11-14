@@ -5,7 +5,6 @@ name "houston"
 run_list(
   "recipe[rvm::system]",
   "recipe[rvm::vagrant]",
-  "recipe[git]",
   "recipe[nodejs]",
   "recipe[postgresql]",
   "recipe[postgresql::server]"

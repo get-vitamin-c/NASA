@@ -4,7 +4,6 @@ name "canaveral"
 run_list(
   "recipe[rvm::system]",
   "recipe[rvm::vagrant]",
-  "recipe[git]",
   "recipe[mongodb::default]",
   "recipe[redisio]",
   "recipe[redisio::enable]"
