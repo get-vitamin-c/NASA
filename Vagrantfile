@@ -8,10 +8,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     houston.vm.box = "houston"
     houston.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     houston.vm.network :forwarded_port, guest: 3000, host: 3000
-    houston.vm.network :private_network, ip: '192.168.50.48'
+    houston.vm.network :private_network, ip: '192.168.50.50'
     houston.vm.synced_folder "houston/", "/vagrant", nfs: true
-    
-    houston.vm.provision "shell", inline: "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
+
     houston.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
       chef.roles_path = "roles"
@@ -35,22 +34,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             :user => "all",
             :addr => nil,
             :method => "md5"
-          }],
-          :users => {
-            :username => "vitaminc",
-            :password => "V1t@minC",
-            :superuser => true
-          }
+          }]
         }
       }
     end
+
+    houston.vm.provision :shell, :inline => "sudo apt-get install postgresql-contrib"
   end
 
   config.vm.define "canaveral" do |canaveral|
     canaveral.vm.box = "canaveral"
     canaveral.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     canaveral.vm.network :forwarded_port, guest: 4568, host: 4568
-    canaveral.vm.network :private_network, ip: '192.168.50.49'
+    canaveral.vm.network :private_network, ip: '192.168.50.50'
     canaveral.vm.synced_folder "canaveral/", "/vagrant", nfs: true
     
     canaveral.vm.provision :chef_solo do |chef|
