@@ -6,7 +6,6 @@ run_list(
   "recipe[rvm::vagrant]",
   "recipe[git]",
   "recipe[mongodb::default]",
-  "recipe[redisio::install]",
-  "recipe[redisio::enable]",
-  "recipe[sidekiq]"
+  "recipe[redisio]",
+  "recipe[redisio::enable]"
 )
