@@ -46,7 +46,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     canaveral.vm.box = "canaveral"
     canaveral.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     canaveral.vm.network :forwarded_port, guest: 4568, host: 4568
-    canaveral.vm.network :private_network, ip: '192.168.50.50'
+    canaveral.vm.network :private_network, ip: '192.168.50.51'
     canaveral.vm.synced_folder "canaveral/", "/vagrant", nfs: true
     
     canaveral.vm.provision :chef_solo do |chef|
@@ -70,7 +70,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     tdrs.vm.box = "tdrs"
     tdrs.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/1/providers/virtualbox.box"
     tdrs.vm.network :forwarded_port, guest: 4567, host: 4567
-    tdrs.vm.network :private_network, ip: '192.168.50.50'
+    tdrs.vm.network :private_network, ip: '192.168.50.52'
     tdrs.vm.synced_folder "TDRS/", "/vagrant", nfs: true
     
     tdrs.vm.provision :chef_solo do |chef|
