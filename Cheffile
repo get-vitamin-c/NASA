@@ -3,9 +3,5 @@
 
 site 'https://supermarket.getchef.com/api/v1'
 
-cookbook 'rvm'
-cookbook 'git'
-cookbook 'postgresql'
 cookbook 'mongodb'
-cookbook 'nodejs'
 cookbook 'redisio'
