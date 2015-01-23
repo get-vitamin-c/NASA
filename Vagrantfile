@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     houston.vm.box_url = "https://vagrantcloud.com/get-vitamin-c/boxes/vc-ubuntu/versions/1/providers/aws.box"
     houston.vm.network :forwarded_port, guest: 3000, host: 3000
     houston.vm.network :private_network, ip: '192.168.50.50'
-    houston.vm.synced_folder "../houston/", "/vagrant", nfs: true
+    houston.vm.synced_folder "../houston/", "/houston", nfs: true
 
     houston.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     canaveral.vm.box_url = "https://vagrantcloud.com/get-vitamin-c/boxes/vc-ubuntu/versions/1/providers/aws.box"
     canaveral.vm.network :forwarded_port, guest: 4568, host: 4568
     canaveral.vm.network :private_network, ip: '192.168.50.51'
-    canaveral.vm.synced_folder "../canaveral/", "/vagrant", nfs: true
+    canaveral.vm.synced_folder "../canaveral/", "/canaveral"
 
     canaveral.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
@@ -38,7 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     tdrs.vm.box_url = "https://vagrantcloud.com/get-vitamin-c/boxes/vc-ubuntu/versions/1/providers/aws.box"
     tdrs.vm.network :forwarded_port, guest: 4567, host: 4567
     tdrs.vm.network :private_network, ip: '192.168.50.52'
-    tdrs.vm.synced_folder "../TDRS/", "/vagrant", nfs: true
+    tdrs.vm.synced_folder "../TDRS/", "/tdrs"
 
     tdrs.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
