@@ -2,6 +2,18 @@ NASA
 ====
 
 ###Onboarding for Vitamin C
+
+Install Vagrant: http://www.vagrantup.com/downloads
+
+Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
+
+Install RVM: https://rvm.io/rvm/install
+
+Install Ruby 2.2.0 with RMV: rvm install 2.2.0
+
+Set Ruby 2.2.0 to default: rvm --default use 2.2.0
+
+Run the following commands:
 ```
 mkdir vitaminc
 cd vitaminc
